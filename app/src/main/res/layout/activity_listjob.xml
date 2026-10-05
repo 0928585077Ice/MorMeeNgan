@@ -1,163 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<com.google.android.material.card.MaterialCardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="12dp"
-    app:cardBackgroundColor="#FFFFFF"
-    app:cardCornerRadius="18dp"
-    app:cardElevation="2dp"
-    app:strokeColor="#E8EAF2"
-    app:strokeWidth="1dp">
+    android:layout_height="match_parent"
+    android:background="#F8F9FD"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="18dp">
-
-        <!-- ชื่องาน -->
-
-        <TextView
-            android:id="@+id/tvJobTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ชื่องาน"
-            android:textColor="#1E2A4A"
-            android:textSize="19sp"
-            android:textStyle="bold"
-            android:maxLines="2"
-            android:ellipsize="end" />
-
-        <!-- ประเภทงาน -->
+        android:paddingHorizontal="20dp"
+        android:paddingTop="28dp"
+        android:paddingBottom="12dp">
 
         <TextView
-            android:id="@+id/tvJobType"
+            android:id="@+id/tvListTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="ประเภทงาน"
+            android:letterSpacing="0.03"
+            android:text="JOB LIST"
             android:textColor="#4558B0"
-            android:textSize="13sp"
-            android:textStyle="bold"
-            android:background="#EEF0FF"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp" />
-
-        <!-- รายละเอียด -->
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tvJobDescription"
-            android:layout_width="match_parent"
+            android:id="@+id/tvListSubtitle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="รายละเอียดงาน"
-            android:textColor="#68758A"
-            android:textSize="14sp"
-            android:maxLines="2"
-            android:ellipsize="end" />
-
-        <!-- เส้นแบ่ง -->
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="14dp"
-            android:layout_marginBottom="14dp"
-            android:background="#EEF0F5" />
-
-        <!-- ข้อมูล -->
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="จำนวนคน"
-                    android:textColor="#9AA4B2"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/tvPeopleCount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:text="5 คน"
-                    android:textColor="#26334D"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="ค่าตอบแทน"
-                    android:textColor="#9AA4B2"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/tvSalary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:text="500 บาท"
-                    android:textColor="#26334D"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1.3"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="หมดเขต"
-                    android:textColor="#9AA4B2"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/tvDeadline"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:text="05/10/2026 14:30"
-                    android:textColor="#26334D"
-                    android:textSize="13sp"
-                    android:textStyle="bold"
-                    android:maxLines="1"
-                    android:ellipsize="end" />
-
-            </LinearLayout>
-
-        </LinearLayout>
+            android:layout_marginTop="2dp"
+            android:text="รายการงานทั้งหมด"
+            android:textColor="#7C8BA0"
+            android:textSize="13sp" />
 
     </LinearLayout>
 
-</com.google.android.material.card.MaterialCardView>
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:divider="#E2E8F0"
+        android:dividerHeight="1dp"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp" />
+
+    <Button
+        android:id="@+id/btnBack"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="24dp"
+        android:letterSpacing="0.02"
+        android:text="← Back"
+        android:textAllCaps="false"
+        android:textColor="#4558B0"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:cornerRadius="14dp"
+        app:strokeColor="#4558B0"
+        app:strokeWidth="1.5dp" />
+
+</LinearLayout>
