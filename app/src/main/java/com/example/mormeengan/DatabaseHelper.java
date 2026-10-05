@@ -9,9 +9,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final int DB_VERSION = 3;
     public static final String TABLE_NAME = "jobs";
     public static final String COL_ID = "id";
-    public static final String COL_NAME = "title";
-    public static final String COL_LAST_NAME = "last_name";
-    public static final String COL_SCORE = "score";
+    public static final String COL_TITLE = "title";
+    public static final String COL_DESCRIPTION = "description";
+    public static final String COL_JOB_TYPE = "job_type";
+    public static final  String COL_PEOPLE_COUNT = "people_count";
+    public static final  String COL_SALARY = "salary";
+    public static final  String COL_DEADLINE = "deadline";
     public DatabaseHelper(Context ctx) {
         super(ctx, DB_NAME, null, DB_VERSION);
     }
