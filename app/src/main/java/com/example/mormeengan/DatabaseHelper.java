@@ -2,12 +2,13 @@ package com.example.mormeengan;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DB_NAME = "mormeengan.db";
-    public static final int DB_VERSION = 3;
+    public static final int DB_VERSION = 4;
     public static final String TABLE_NAME = "jobs";
     public static final String COL_ID = "id";
     public static final String COL_TITLE = "title";
@@ -21,19 +22,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_TABLE = ("CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " (" +
+        String CREATE_TABLE = ("CREATE TABLE " + TABLE_NAME + " (" +
                 COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COL_TITLE + " TEXT NOT NULL, " +
-                COL_DESCRIPTION + "TEXT, " +
-                COL_JOB_TYPE + " TEXT, " +
-                COL_PEOPLE_COUNT + "INTEGER, " +
-                COL_SALARY + "TEXT, " +
-                COL_DEADLINE + "TEXT" +
+                COL_DESCRIPTION + " TEXT NOT NULL, " +
+                COL_JOB_TYPE + " TEXT NOT NULL, " +
+                COL_PEOPLE_COUNT + " INTEGER NOT NULL, " +
+                COL_SALARY + " TEXT NOT NULL, " +
+                COL_DEADLINE + " TEXT NOT NULL" +
                 ")");
         db.execSQL(CREATE_TABLE);
     }
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldV, int newV) {
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
     }
@@ -45,7 +46,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             int peopleCount,
             String salary,
             String deadline
-    ){
+    )
+    {
        SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -64,6 +66,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
             return result != -1;
     }
+    public Cursor getAllJobs(){
+        SQLiteDatabase db = getReadableDatabase();
 
+        return db.query(
+                TABLE_NAME,
+                null,
+                null,
+                null,
+                null,
+                null,
+                COL_ID + " DESC"
+        );
+    }
 }
 
