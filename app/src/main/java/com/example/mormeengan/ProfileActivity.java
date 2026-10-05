@@ -3,6 +3,8 @@ package com.example.mormeengan;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -16,8 +18,9 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    TextView tvName;
-    Button btnLogout;
+    TextView tvName,btnLogout;
+    LinearLayout navProfile,navHome;
+    FrameLayout navAddJob;
     FirebaseAuth auth;
 
     @Override
@@ -25,6 +28,9 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        navHome = findViewById(R.id.navHome);
+        navAddJob = findViewById(R.id.navAddJob);
+        navProfile = findViewById(R.id.navProfile);
         tvName = findViewById(R.id.tvName);
         btnLogout = findViewById(R.id.btnLogout);
 
@@ -39,6 +45,18 @@ public class ProfileActivity extends AppCompatActivity {
             finish();
         });
 
+        navProfile.setOnClickListener(v -> {});
 
+        navAddJob.setOnClickListener(v -> {
+
+            Intent intent = new Intent(ProfileActivity.this,CreateJobActivity.class);
+            startActivity(intent);
+        });
+
+        navHome.setOnClickListener(v -> {
+
+            Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
+            startActivity(intent);
+        });
     }
 }
