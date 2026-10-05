@@ -33,7 +33,7 @@ public class ListJobActivity extends AppCompatActivity {
 
         jobList = new ArrayList<>();
 
-        adapter = new ArrayAdapter<>(
+        adapter = new ArrayAdapter<String>(
                 this,
                 android.R.layout.simple_list_item_1,
                 jobList
@@ -90,12 +90,12 @@ public class ListJobActivity extends AppCompatActivity {
             );
 
             String job =
-                    title + "\n"
-                            + description + "\n"
+                    "ชื่องาน: " + title + "\n"
+                            + "รายละเอียด: " + description + "\n"
                             + "ประเภทงาน: " + jobType + "\n"
                             + "จำนวนคน: " + peopleCount + " คน\n"
                             + "ค่าตอบแทน: " + salary + "\n"
-                            + "หมดเขต: " + deadline;
+                            + "วันปฏิบัติการ: " + deadline;
 
             jobList.add(job);
         }

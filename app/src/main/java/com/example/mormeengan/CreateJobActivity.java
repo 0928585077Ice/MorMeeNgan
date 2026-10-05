@@ -44,9 +44,7 @@ public class CreateJobActivity extends AppCompatActivity {
 
         databaseHelper = new DatabaseHelper(this);
 
-        btnBack.setOnClickListener(v ->  {
-            Intent intent = new Intent(CreateJobActivity.this, MainActivity.class);
-        });
+        btnBack.setOnClickListener(v -> finish());
 
         btnPostJob.setOnClickListener(v -> saveJob());
 

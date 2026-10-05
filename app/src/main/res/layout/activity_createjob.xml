@@ -287,11 +287,10 @@
             </com.google.android.material.card.MaterialCardView>
 
 
-            <!-- วันหมดเขต -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="วันหมดเขตรับสมัคร"
+                android:text="วันปฏิบัติการ"
                 android:textColor="#1B2430"
                 android:textSize="14sp"
                 android:textStyle="bold" />

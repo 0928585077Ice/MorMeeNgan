@@ -29,14 +29,14 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         navHome = findViewById(R.id.navHome);
-        navAddJob = findViewById(R.id.navAddJob);
         navProfile = findViewById(R.id.navProfile);
         tvName = findViewById(R.id.tvName);
         btnLogout = findViewById(R.id.btnLogout);
 
         auth = FirebaseAuth.getInstance();
         FirebaseUser user = auth.getCurrentUser();
-        tvName.setText("Welcome : "+ (user != null ? user.getEmail() : null));
+        tvName.setText("Welcome  "
+                + (user != null ? user.getEmail() : null));
 
         btnLogout.setOnClickListener(v -> {
             auth.signOut();
@@ -46,12 +46,6 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
         navProfile.setOnClickListener(v -> {});
-
-        navAddJob.setOnClickListener(v -> {
-
-            Intent intent = new Intent(ProfileActivity.this,CreateJobActivity.class);
-            startActivity(intent);
-        });
 
         navHome.setOnClickListener(v -> {
 

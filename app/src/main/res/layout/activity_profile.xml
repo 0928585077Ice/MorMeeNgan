@@ -219,10 +219,6 @@
         <!-- PERSONAL INFORMATION CARD -->
         <!-- ================================================= -->
 
-        <!-- ================================================= -->
-        <!-- PERSONAL INFORMATION CARD -->
-        <!-- ================================================= -->
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -424,30 +420,6 @@
                 android:textColor="#1565C0"/>
 
         </LinearLayout>
-
-
-        <FrameLayout
-            android:id="@+id/navAddJob"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_marginStart="14dp"
-            android:layout_marginEnd="14dp"
-            android:background="@drawable/bg_button_gradient"
-            android:elevation="8dp"
-            android:clickable="true"
-            android:focusable="true">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="+"
-                android:textSize="32sp"
-                android:textStyle="normal"
-                android:textColor="#FFFFFF"/>
-
-        </FrameLayout>
-
 
         <LinearLayout
             android:id="@+id/navProfile"
