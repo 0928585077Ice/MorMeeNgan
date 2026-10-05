@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1031955214620",
+    "project_id": "mormeengan",
+    "storage_bucket": "mormeengan.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1031955214620:android:3500095391dea3f1bc0ad9",
+        "android_client_info": {
+          "package_name": "com.example.mormeengan"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuEILHSlJQndlaTmC6Y7KDGpCP_wFCcKM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
