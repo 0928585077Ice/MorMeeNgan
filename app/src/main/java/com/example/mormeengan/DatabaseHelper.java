@@ -1,5 +1,6 @@
 package com.example.mormeengan;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -20,16 +21,49 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " (" +
+        String CREATE_TABLE = ("CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " (" +
                 COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COL_NAME + " TEXT, " +
-                COL_LAST_NAME + " TEXT, " +
-                COL_SCORE + " REAL)");
+                COL_TITLE + " TEXT NOT NULL, " +
+                COL_DESCRIPTION + "TEXT, " +
+                COL_JOB_TYPE + " TEXT, " +
+                COL_PEOPLE_COUNT + "INTEGER, " +
+                COL_SALARY + "TEXT, " +
+                COL_DEADLINE + "TEXT" +
+                ")");
+        db.execSQL(CREATE_TABLE);
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldV, int newV) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
     }
+
+    public  boolean insertJob(
+            String title,
+            String description,
+            String jobType,
+            int peopleCount,
+            String salary,
+            String deadline
+    ){
+       SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+        values.put(COL_TITLE, title);
+        values.put(COL_DESCRIPTION, description);
+        values.put(COL_JOB_TYPE, jobType);
+        values.put(COL_SALARY, salary);
+        values.put(COL_PEOPLE_COUNT, peopleCount);
+        values.put(COL_DEADLINE, deadline);
+
+        long result = db.insert(
+                TABLE_NAME,null,values
+        );
+            db.close();
+
+            return result != -1;
+    }
+
 }
 

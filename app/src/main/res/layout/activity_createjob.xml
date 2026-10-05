@@ -297,7 +297,6 @@
                 android:textStyle="bold" />
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardDeadline"
                 android:layout_width="match_parent"
                 android:layout_height="44dp"
                 android:layout_marginTop="5dp"
@@ -329,18 +328,16 @@
                         android:layout_marginStart="9dp"
                         android:layout_weight="1"
                         android:background="@null"
-                        android:clickable="true"
-                        android:focusable="false"
                         android:gravity="center_vertical"
-                        android:hint="เลือกวันและเวลา"
-                        android:inputType="none"
+                        android:hint="เช่น 05/10/2026 14:30"
+                        android:inputType="text"
                         android:padding="0dp"
                         android:textColor="#1B2430"
                         android:textColorHint="#9AA3AF"
                         android:textSize="14sp" />
 
                     <ImageView
-                        android:layout_width="19dp"
+                        android:layout_width="11dp"
                         android:layout_height="19dp"
                         android:src="@android:drawable/ic_menu_my_calendar"
                         app:tint="#5B6675" />
